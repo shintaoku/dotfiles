@@ -5,6 +5,7 @@ vim.g.vim_home_path = "~/.vim"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.background = "dark"
+vim.opt.termguicolors = true  -- Enable 24-bit RGB colors
 vim.cmd('syntax enable')
 
 --------------------------------------------------------------------
@@ -18,6 +19,17 @@ vim.cmd('colorscheme dracula')
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 
 require'nvim-treesitter.configs'.setup {
+  -- Enable syntax highlighting
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+
+  -- Enable indentation
+  indent = {
+    enable = true,
+  },
+
   textobjects = {
     select = {
       enable = true,
